@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/ch6_view" />
             <option value="$PROJECT_DIR$/ch7_layout" />
             <option value="$PROJECT_DIR$/ch8_event" />
+            <option value="$PROJECT_DIR$/ch9_resource" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

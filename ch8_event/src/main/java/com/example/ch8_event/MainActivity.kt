@@ -2,6 +2,7 @@ package com.example.ch8_event
 
 import android.os.Bundle
 import android.os.SystemClock
+import android.util.Log
 import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,16 +36,19 @@ class MainActivity : AppCompatActivity() {
 
         binding.resetButton.setOnClickListener {
             pauseTime = 0L
-            binding.chronometer.base = SystemClock.elapsedRealtime()
-            binding.chronometer.stop()
-            binding.stopButton.isEnabled = false
-            binding.resetButton.isEnabled = false
-            binding.startButton.isEnabled = true
+            binding.run {
+                chronometer.base = SystemClock.elapsedRealtime()
+                chronometer.stop()
+                stopButton.isEnabled = false
+                resetButton.isEnabled = false
+                startButton.isEnabled = true
+            }
         }
     }
     // back button event handler
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        print(keyCode)
+        println(keyCode)
+        Log.d("adsadsadssd", "asdasdasdasdasdas")
         if(keyCode === KeyEvent.KEYCODE_BACK) {
             if(System.currentTimeMillis() - initTime > 3000) {
                 Toast.makeText(this,
