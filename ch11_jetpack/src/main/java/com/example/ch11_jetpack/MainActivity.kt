@@ -1,5 +1,3 @@
-package com.example.ch11_jetpack
-
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,10 +8,14 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.ch11_jetpack.OneFragment
+import com.example.ch11_jetpack.R
+import com.example.ch11_jetpack.ThreeFragment
+import com.example.ch11_jetpack.TwoFragment
 import com.example.ch11_jetpack.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
 
+class MainActivity:AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
 
     class MyFragmentPagerAdapter(activity: FragmentActivity): FragmentStateAdapter(activity){
@@ -30,12 +32,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setSupportActionBar(binding.toolbar)
-        toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_opened,
-            R.string.drawer_closed)
+
+        toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_opened, R.string.drawer_closed)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.syncState()
 
+        // 뷰 페이지에 어댑터 적용하는 부분
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter
     }
